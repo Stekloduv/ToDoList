@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    Tag list
+    <a href="{% url 'task:tag-create' %}" class="btn btn-primary link-to-page">
+      Create
+    </a>
+  </h1>
+  {% if tag_list %}
+    <ul>
+      {% for tag in tag_list %}
+        <li style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0;">
+          <span style="font-size: 1.5em; font-weight: bold;">{{ tag.name }}</span>
+          <div>
+            <a href="{% url 'task:tag-update' tag.id %}" class="btn btn-secondary">Update</a>
+            <a href="{% url 'task:tag-delete' tag.id %}" class="btn btn-secondary">Delete</a>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no tags in tag List</p>
+  {% endif %}
+{% endblock %}
