@@ -9,7 +9,8 @@ from task.views import (
     TagListView,
     TagCreateView,
     TagUpdateView,
-    TagDeleteView
+    TagDeleteView,
+    toggle_task,
 )
 
 urlpatterns = [
@@ -45,7 +46,7 @@ urlpatterns = [
         TagDeleteView.as_view(),
         name="tag-delete",
     ),
-    path('tasks/toggle/<int:pk>/', views.toggle_task, name='task-toggle'),
+    path('tasks/toggle/<int:pk>/', toggle_task, name='task-toggle'),
 
 ]
 
