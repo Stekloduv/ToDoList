@@ -57,10 +57,7 @@ class TaskDeleteView(generic.DeleteView):
 
 def toggle_task(request, pk):
     task = get_object_or_404(Task, id=pk)
-    if task.is_done:
-        task.is_done = False
-    else:
-        task.is_done = True
+    task.is_done = not task.is_done
     task.save()
-    return redirect(reverse_lazy('task:task-list'))
+    return redirect('task:task-list')
 
