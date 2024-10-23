@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views import generic
 
@@ -60,4 +60,3 @@ def toggle_task(request, pk):
     task.is_done = not task.is_done
     task.save()
     return redirect('task:task-list')
-
